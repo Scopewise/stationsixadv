@@ -1,0 +1,13 @@
+{
+  "routes": [],
+  "navigationFallback": {
+    "rewrite": "/404.html",
+    "exclude": ["/css/*", "/img/*", "*.{png,jpg,jpeg,gif,ico,svg,webp}"]
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html",
+      "statusCode": 404
+    }
+  }
+}

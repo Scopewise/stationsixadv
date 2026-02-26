@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: After Action
+permalink: /after-action/
+---
+
+<div class="listing-header">
+  <h1 class="listing-title">After Action</h1>
+  <p class="listing-desc">Reflection after the fact — what lingered, what changed.</p>
+</div>
+
+<section class="post-list">
+  {% if collections.afterAction and collections.afterAction.length > 0 %}
+    {% for post in collections.afterAction %}
+    <article class="post-item">
+      <div class="post-item-meta">
+        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      </div>
+      <h2 class="post-item-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      {% if post.data.description %}
+      <p class="post-item-desc">{{ post.data.description }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  {% else %}
+    <p class="empty-state">Nothing filed yet.</p>
+  {% endif %}
+</section>

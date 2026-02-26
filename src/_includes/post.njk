@@ -1,0 +1,25 @@
+---
+layout: base.njk
+---
+
+{% set labelNames = {
+  "field-notes": "Field Notes",
+  "judgment-calls": "Judgment Calls",
+  "after-action": "After Action"
+} %}
+
+<article class="post">
+  <header class="post-header">
+    {% if label %}
+    <span class="post-label">{{ labelNames[label] }}</span>
+    {% endif %}
+    <h1 class="post-title">{{ title }}</h1>
+    <time class="post-date" datetime="{{ page.date | htmlDateString }}">
+      {{ page.date | readableDate }}
+    </time>
+  </header>
+
+  <div class="post-content">
+    {{ content | safe }}
+  </div>
+</article>
