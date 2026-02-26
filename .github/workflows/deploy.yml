@@ -41,6 +41,7 @@ jobs:
           app_location: '_site'
           output_location: '.'
           skip_app_build: true
+          production_branch: 'main'
 
   close_pull_request:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
