@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if title and title != "Home" %}{{ title }} — {% endif %}StationSixADV</title>
+  <title>{% if title and title != "Journal" %}{{ title }} — {% endif %}StationSixADV</title>
   {% if description %}<meta name="description" content="{{ description }}">{% endif %}
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -12,9 +12,7 @@
   <header class="site-header">
     <a href="/" class="site-name">StationSixADV</a>
     <nav class="site-nav" aria-label="Primary">
-      <a href="/field-notes/" {% if page.url.startsWith('/field-notes') %}aria-current="page"{% endif %}>Field Notes</a>
-      <a href="/judgment-calls/" {% if page.url.startsWith('/judgment-calls') %}aria-current="page"{% endif %}>Judgment Calls</a>
-      <a href="/after-action/" {% if page.url.startsWith('/after-action') %}aria-current="page"{% endif %}>After Action</a>
+      <a href="/" {% if page.url == '/' or page.url.startsWith('/posts/') %}aria-current="page"{% endif %}>Journal</a>
       <a href="/about/" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
     </nav>
   </header>

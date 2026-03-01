@@ -253,6 +253,12 @@ a:hover {
   color: var(--muted);
   display: block;
   margin-bottom: var(--space-2);
+  text-decoration: none;
+}
+
+.post-header .post-label:hover {
+  color: var(--ink);
+  text-decoration: none;
 }
 
 .post-title {

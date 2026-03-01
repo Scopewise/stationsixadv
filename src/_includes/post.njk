@@ -11,7 +11,7 @@ layout: base.njk
 <article class="post">
   <header class="post-header">
     {% if label %}
-    <span class="post-label">{{ labelNames[label] }}</span>
+    <a class="post-label" href="/{{ label }}/">{{ labelNames[label] }}</a>
     {% endif %}
     <h1 class="post-title">{{ title }}</h1>
     <time class="post-date" datetime="{{ page.date | htmlDateString }}">
