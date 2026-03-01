@@ -1,7 +1,7 @@
 ---
 title: "Why I Ride"
 date: 2026-03-01
-label: after-action
+label: mile-markers
 description: "Dangerous is partly the point. Here's the longer answer."
 ---
 

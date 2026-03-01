@@ -1,17 +1,17 @@
 ---
 layout: base.njk
-title: After Action
-permalink: /after-action/
+title: Trail Notes
+permalink: /trail-notes/
 ---
 
 <div class="listing-header">
-  <h1 class="listing-title">After Action</h1>
-  <p class="listing-desc">Reflection after the fact — what lingered, what changed.</p>
+  <h1 class="listing-title">Trail Notes</h1>
+  <p class="listing-desc">From the road. What happened, what was seen, what was ridden.</p>
 </div>
 
 <section class="post-list">
-  {% if collections.afterAction and collections.afterAction.length > 0 %}
-    {% for post in collections.afterAction %}
+  {% if collections.trailNotes and collections.trailNotes.length > 0 %}
+    {% for post in collections.trailNotes %}
     <article class="post-item">
       <div class="post-item-meta">
         <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>

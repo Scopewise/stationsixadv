@@ -22,16 +22,12 @@ module.exports = function (eleventyConfig) {
   });
 
   // Collections — one per label, sorted newest first
-  eleventyConfig.addCollection("fieldNotes", (api) =>
-    api.getFilteredByTag("posts").filter((p) => p.data.label === "field-notes").reverse()
+  eleventyConfig.addCollection("trailNotes", (api) =>
+    api.getFilteredByTag("posts").filter((p) => p.data.label === "trail-notes").reverse()
   );
 
-  eleventyConfig.addCollection("judgmentCalls", (api) =>
-    api.getFilteredByTag("posts").filter((p) => p.data.label === "judgment-calls").reverse()
-  );
-
-  eleventyConfig.addCollection("afterAction", (api) =>
-    api.getFilteredByTag("posts").filter((p) => p.data.label === "after-action").reverse()
+  eleventyConfig.addCollection("mileMarkers", (api) =>
+    api.getFilteredByTag("posts").filter((p) => p.data.label === "mile-markers").reverse()
   );
 
   return {
