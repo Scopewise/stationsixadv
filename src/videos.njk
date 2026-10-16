@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Videos
+permalink: /videos/
+---
+
+<div class="s6-measure">
+  {% set heading = "Videos" %}
+  {% set lede = "Footage from the road, picked and filed here." %}
+  {% include "page-header.njk" %}
+
+  {% set list = videos.videos | newestFirst %}
+  {% if list.length > 0 %}
+  <ul class="s6-journal">
+    {% for video in list %}<li>{% include "video-card.njk" %}</li>{% endfor %}
+  </ul>
+  {% else %}
+  <p class="s6-empty body">Nothing filed yet.</p>
+  {% endif %}
+
+  {%- if videos.channelUrl %}
+  <p class="s6-video__channel meta"><a href="{{ videos.channelUrl }}" target="_blank" rel="noopener">More on YouTube</a></p>
+  {%- endif %}
+</div>

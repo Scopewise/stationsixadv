@@ -218,6 +218,15 @@ a.s6-label:hover { color: var(--ink); border-color: var(--ink-muted); }
   .s6-page-header .entry-title { font-size: 34px; line-height: 36px; }
 }
 
+/* Videos: 16:9 embed inside a card, used on /videos/ and the home page */
+.s6-video__frame { position: relative; aspect-ratio: 16 / 9; background: var(--night); margin: 0 0 var(--space-4); }
+.s6-video__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.s6-video__channel { margin: 0; padding: 0 0 var(--space-8); }
+.s6-video__channel a { color: var(--link); }
+.s6-latest-video { border-bottom: var(--hairline) solid var(--rule); margin-bottom: var(--space-4); }
+.s6-latest-video__eyebrow { color: var(--ink-muted); text-transform: uppercase; margin: 0; }
+.s6-latest-video .s6-card { padding-top: var(--space-3); }
+
 .s6-empty { color: var(--ink-muted); margin: 0; padding: var(--space-8) 0; }
 
 /* Prose elements the bundle leaves to the browser */
