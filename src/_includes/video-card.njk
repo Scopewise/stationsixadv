@@ -1,0 +1,13 @@
+{#- One video in a Videos list. Expects `video` from src/_data/videos.json. -#}
+<article class="s6-card s6-video">
+  {%- if video.date %}
+  <p class="s6-card__meta meta"><time datetime="{{ video.date | htmlDateString }}">{{ video.date | readableDate }}</time></p>
+  {%- endif %}
+  <h2 class="s6-card__title card-title"><a href="https://www.youtube.com/watch?v={{ video.id }}" target="_blank" rel="noopener">{{ video.title }}</a></h2>
+  <div class="s6-video__frame">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ video.id }}" title="{{ video.title }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  {%- if video.note %}
+  <p class="s6-card__excerpt body">{{ video.note }}</p>
+  {%- endif %}
+</article>

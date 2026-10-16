@@ -19,6 +19,11 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
 
+  // Hand-picked videos from src/_data/videos.json, newest first
+  eleventyConfig.addFilter("newestFirst", (arr) =>
+    Array.isArray(arr) ? [...arr].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0)) : []
+  );
+
   eleventyConfig.addFilter("limit", (arr, limit) => {
     return Array.isArray(arr) ? arr.slice(0, limit) : arr;
   });

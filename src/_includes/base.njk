@@ -17,7 +17,8 @@
     <div class="s6-container s6-header__inner">
       <a class="s6-wordmark wordmark" href="/">StationSix<span class="s6-wordmark__adv">ADV</span></a>
       <nav class="s6-nav" aria-label="Main">
-        <a class="nav" href="/" {% if page.url != '/about/' %}aria-current="page"{% endif %}>Journal</a>
+        <a class="nav" href="/" {% if page.url != '/about/' and page.url != '/videos/' %}aria-current="page"{% endif %}>Journal</a>
+        <a class="nav" href="/videos/" {% if page.url == '/videos/' %}aria-current="page"{% endif %}>Videos</a>
         <a class="nav" href="/about/" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
       </nav>
     </div>
@@ -36,6 +37,9 @@
       <ul class="s6-social" aria-label="Elsewhere">
         <li><a href="https://www.facebook.com/stationsix" target="_blank" rel="noopener" aria-label="StationSixADV on Facebook"><img src="/img/social/facebook-logo-white.png" alt="" width="20" height="20"></a></li>
         <li><a href="https://www.instagram.com/stationsix/" target="_blank" rel="noopener" aria-label="StationSixADV on Instagram"><img src="/img/social/instagram-glyph-white.svg" alt="" width="20" height="20"></a></li>
+        {%- if videos.channelUrl %}
+        <li><a href="{{ videos.channelUrl }}" target="_blank" rel="noopener" aria-label="StationSixADV on YouTube"><img src="/img/social/youtube-glyph-white.svg" alt="" width="20" height="20"></a></li>
+        {%- endif %}
       </ul>
     </div>
   </footer>

@@ -9,6 +9,15 @@ permalink: /
   {% set lede = "For riders who are past the honeymoon phase. Not here for gear lists or destination guides, here to think through what actually happens out there, and why." %}
   {% include "page-header.njk" %}
 
+  {% set latestVideo = (videos.videos | newestFirst)[0] %}
+  {%- if latestVideo %}
+  <section class="s6-latest-video" aria-labelledby="latest-video">
+    <p id="latest-video" class="s6-latest-video__eyebrow eyebrow">Latest video</p>
+    {% set video = latestVideo %}{% include "video-card.njk" %}
+    <p class="s6-video__channel meta"><a href="/videos/">All videos</a></p>
+  </section>
+  {%- endif %}
+
   {% set recentPosts = collections.posts | reverse | limit(10) %}
   {% if recentPosts and recentPosts.length > 0 %}
   <ul class="s6-journal">
