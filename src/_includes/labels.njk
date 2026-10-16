@@ -1,0 +1,10 @@
+{#- Label tags (LabelTag). Expects `labels`: the entry's front matter `label`. -#}
+{%- set labelNames = { "trail-notes": "trail notes", "mile-markers": "mile markers" } -%}
+{%- set entryLabels = labels | labelList -%}
+{%- if entryLabels.length -%}
+<ul class="s6-labels" aria-label="Labels">
+  {%- for l in entryLabels %}
+  <li><a class="s6-label label" href="/{{ l }}/">{{ labelNames[l] }}</a></li>
+  {%- endfor %}
+</ul>
+{%- endif -%}

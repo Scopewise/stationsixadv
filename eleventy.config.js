@@ -17,17 +17,28 @@ module.exports = function (eleventyConfig) {
     return new Date(dateObj).toISOString().split("T")[0];
   });
 
+  eleventyConfig.addFilter("year", () => new Date().getFullYear());
+
   eleventyConfig.addFilter("limit", (arr, limit) => {
     return Array.isArray(arr) ? arr.slice(0, limit) : arr;
   });
 
+  // Labels — front matter `label` may be one label or a list of both.
+  // Always returned in the order trail-notes, mile-markers.
+  const LABEL_ORDER = ["trail-notes", "mile-markers"];
+  const labelList = (label) => {
+    const labels = Array.isArray(label) ? label : label ? [label] : [];
+    return LABEL_ORDER.filter((l) => labels.includes(l));
+  };
+  eleventyConfig.addFilter("labelList", labelList);
+
   // Collections — one per label, sorted newest first
   eleventyConfig.addCollection("trailNotes", (api) =>
-    api.getFilteredByTag("posts").filter((p) => p.data.label === "trail-notes").reverse()
+    api.getFilteredByTag("posts").filter((p) => labelList(p.data.label).includes("trail-notes")).reverse()
   );
 
   eleventyConfig.addCollection("mileMarkers", (api) =>
-    api.getFilteredByTag("posts").filter((p) => p.data.label === "mile-markers").reverse()
+    api.getFilteredByTag("posts").filter((p) => labelList(p.data.label).includes("mile-markers")).reverse()
   );
 
   return {
