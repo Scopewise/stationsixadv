@@ -1,8 +1,13 @@
 ---
 layout: base.njk
-title: Not Found
+title: Not found
 permalink: /404.html
 ---
 
-<h1 class="listing-title">Not Found</h1>
-<p style="margin-top: 1.5rem;">This page doesn't exist. <a href="/">Return home.</a></p>
+<div class="s6-measure">
+  {% set heading = "Not found" %}
+  {% include "page-header.njk" %}
+  <div class="s6-prose">
+    <p>This page doesn't exist. <a href="/">Back to the journal.</a></p>
+  </div>
+</div>

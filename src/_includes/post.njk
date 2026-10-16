@@ -2,23 +2,39 @@
 layout: base.njk
 ---
 
-{% set labelNames = {
-  "trail-notes": "Trail Notes",
-  "mile-markers": "Mile Markers"
-} %}
+{%- set earlier = collections.posts | getPreviousCollectionItem(page) %}
+{%- set later = collections.posts | getNextCollectionItem(page) %}
 
-<article class="post">
-  <header class="post-header">
-    {% if label %}
-    <a class="post-label" href="/{{ label }}/">{{ labelNames[label] }}</a>
-    {% endif %}
-    <h1 class="post-title">{{ title }}</h1>
-    <time class="post-date" datetime="{{ page.date | htmlDateString }}">
-      {{ page.date | readableDate }}
-    </time>
+<article class="s6-measure">
+  <header class="s6-entry-header">
+    <span class="s6-rule-bar" aria-hidden="true"></span>
+    {% set labels = label %}{% include "labels.njk" %}
+    <h1 class="s6-entry-header__title entry-title">{{ title }}</h1>
+    <p class="s6-entry-header__meta meta">
+      <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      {%- if place %}<span>{{ place }}</span>{% endif %}
+      {%- if ride %}<span>{{ ride }}</span>{% endif %}
+    </p>
   </header>
 
-  <div class="post-content">
+  <div class="s6-prose">
     {{ content | safe }}
   </div>
+
+  {%- if earlier or later %}
+  <nav class="s6-entry-nav" aria-label="More entries">
+    {%- if earlier %}
+    <a class="s6-entry-nav__link" rel="prev" href="{{ earlier.url }}">
+      <span class="s6-entry-nav__dir eyebrow">Earlier</span>
+      <span class="s6-entry-nav__title card-title">{{ earlier.data.title }}</span>
+    </a>
+    {%- endif %}
+    {%- if later %}
+    <a class="s6-entry-nav__link" rel="next" href="{{ later.url }}">
+      <span class="s6-entry-nav__dir eyebrow">Later</span>
+      <span class="s6-entry-nav__title card-title">{{ later.data.title }}</span>
+    </a>
+    {%- endif %}
+  </nav>
+  {%- endif %}
 </article>

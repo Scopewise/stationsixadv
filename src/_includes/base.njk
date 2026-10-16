@@ -3,40 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if title and title != "Journal" %}{{ title }} — {% endif %}StationSixADV</title>
+  <title>{% if title and title != "Journal" %}{{ title }} · {% endif %}StationSixADV</title>
   {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="s6-page">
 
-  <header class="site-header">
-    <a href="/" class="site-name">StationSixADV</a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/" {% if page.url == '/' or page.url.startsWith('/posts/') %}aria-current="page"{% endif %}>Journal</a>
-      <a href="/about/" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
-    </nav>
+  <header class="s6-header">
+    <div class="s6-container s6-header__inner">
+      <a class="s6-wordmark wordmark" href="/">StationSix<span class="s6-wordmark__adv">ADV</span></a>
+      <nav class="s6-nav" aria-label="Main">
+        <a class="nav" href="/" {% if page.url != '/about/' %}aria-current="page"{% endif %}>Journal</a>
+        <a class="nav" href="/about/" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="site-main">
+  <main class="s6-main">
     {{ content | safe }}
   </main>
 
-  <footer class="site-footer">
-    <p>StationSixADV</p>
-    <nav class="social-nav" aria-label="Social">
-      <a href="https://www.instagram.com/stationsix/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>
-      <a href="https://www.facebook.com/stationsix" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-        </svg>
-      </a>
-    </nav>
+  <footer class="s6-footer">
+    <div class="s6-container s6-footer__inner">
+      <div>
+        <p class="s6-footer__sign meta">StationSixADV. A rider's field journal.</p>
+        <p class="s6-footer__legal meta">&copy; {{ "now" | year }} StationSixADV</p>
+      </div>
+      <ul class="s6-social" aria-label="Elsewhere">
+        <li><a href="https://www.facebook.com/stationsix" target="_blank" rel="noopener" aria-label="StationSixADV on Facebook"><img src="/img/social/facebook-logo-white.png" alt="" width="20" height="20"></a></li>
+        <li><a href="https://www.instagram.com/stationsix/" target="_blank" rel="noopener" aria-label="StationSixADV on Instagram"><img src="/img/social/instagram-glyph-white.svg" alt="" width="20" height="20"></a></li>
+      </ul>
+    </div>
   </footer>
 
 </body>

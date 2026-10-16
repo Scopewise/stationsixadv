@@ -1,0 +1,8 @@
+{#- Page title block for Journal, About, label lists and 404. Expects `heading`, optional `lede`. -#}
+<header class="s6-entry-header s6-page-header">
+  <span class="s6-rule-bar" aria-hidden="true"></span>
+  <h1 class="s6-entry-header__title entry-title">{{ heading }}</h1>
+  {%- if lede %}
+  <p class="s6-page-header__lede lede">{{ lede }}</p>
+  {%- endif %}
+</header>

@@ -1,0 +1,11 @@
+{#- One item in a Journal list (EntryCard). Expects `post`. -#}
+<li>
+  <article class="s6-card">
+    <p class="s6-card__meta meta"><time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time></p>
+    <h2 class="s6-card__title card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+    {%- if post.data.description %}
+    <p class="s6-card__excerpt body">{{ post.data.description }}</p>
+    {%- endif %}
+    {% set labels = post.data.label %}{% include "labels.njk" %}
+  </article>
+</li>
